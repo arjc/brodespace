@@ -1,3 +1,59 @@
-#projectsNavigationButton {
-    font-size: 7.5px
+#content {
+  position: absolute;
+  width: calc(100vw - 75px);
+  height: 100%;
+  top: 0;
+  margin: 0 0 0 75px;
+}
+#homeWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#navbarContainer {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background: #171717;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  box-shadow: 2px 0 15px #000;
+  font-size: 2em;
+  width: 55px;
+}
+@media only screen and (max-width: 600px) {
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #navbarContainer {
+    height: 10vh;
+    width: 100%;
+    bottom: 0;
+    flex-direction: row;
+    padding: 1% 0 1% 0;
+  }
+  #navbarContainer:active {
+    filter: brightness(1);
+    text-shadow: 0 0 20px;
+  }
+}
+#navbarContainer a {
+  filter: brightness(10%);
+  text-shadow: 0 0 2.5px #000;
+}
+#projectsNavButton {
+  font-size: 0.75937rem;
+}
+#contactNavButton {
+  font-size: 1.13875rem;
+}
+#navbarContainer a:hover {
+  filter: brightness(1);
+  text-shadow: 0 0 20px;
 }
