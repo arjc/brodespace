@@ -15,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1% 1% 1% 1%;
+  padding: 1%;
 }
 
 /*neon glow part and neon glow animations*/
@@ -181,7 +181,7 @@
   width: 55px;
 }
 #navbarContainer a {
-  filter: brightness(0.1);
+  filter: brightness(0.25);
   text-shadow: 0 0 2.5px #000;
   transition: all 250ms ease-in-out;
 }
@@ -196,6 +196,9 @@
   font-size: 1.13875rem;
 }
 @media only screen and (max-width: 600px) {
+  #navbarContainer a {
+    filter: none;
+  }
   .homeWrapper{
     padding: 5% 2.5% 5% 2.5%;
   }
