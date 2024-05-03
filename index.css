@@ -1,26 +1,96 @@
-.content {
+body{
+  display: grid;
+  grid-template-areas: 'dum con';
+}
+#dummy{
+  display: block;
+  width: 75px;
+  grid-area: dum;
+}
+/*Home means content... do not be confused. I just hate life at this point.*/
+#Home {
   position: absolute;
-  width: calc(100vw - 75px);
+  width: calc(100vw - 80px) !important;
   height: 100%;
   top: 0;
   right: 0;
-  margin: 0 0 0 75px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  grid-area: con;
 }
+/*NAVBAR*/
+#navbarContainer {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background: #171717;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  box-shadow: 2px 0 15px #000;
+  font-size: 2em;
+  width: 55px;
+}
+#navbarContainer a {
+  filter: brightness(0.25);
+  text-shadow: 0 0 2.5px #000;
+  transition: all 250ms ease-in-out;
+}
+#navbarContainer a:hover {
+  filter: brightness(1);
+  text-shadow: 0 0 20px;
+}
+#projectsNavButton {
+  font-size: 0.75937rem;
+}
+#contactNavButton {
+  font-size: 1.13875rem;
+}
+@media only screen and (max-width: 600px) {
+  #dummy{
+    display: none;
+  }
+  #navbarContainer a {
+    filter: none;
+  }
+  .homeWrapper {
+    padding: 5% 2.5% 5% 2.5%;
+  }
+  #neonHi {
+    font-size: 20vw;
+  }
+  .content {
+    width: 100vw;
+    margin: 0 !important;
+  }
+  #navbarContainer {
+    height: 10vh;
+    width: 100%;
+    bottom: 0;
+    flex-direction: row;
+    padding: 1% 0 1% 0;
+  }
+  #navbarContainer:active {
+    filter: brightness(1);
+    text-shadow: 0 0 20px;
+  }
+}
+
 .homeWrapper {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 1%;
 }
-
 /*neon glow part and neon glow animations*/
 #neonHi {
   font-size: 5em;
+  font-weight: 1000;
   color: #0f0f0f;
   text-shadow: none;
 }
@@ -52,7 +122,6 @@
   text-shadow: 0 0 0.5px;
   transform: translateY(-2vh);
 }
-
 #neonBrodeRap :nth-child(1) {
   /*animation: name duration timing-function delay;*/
   animation: neonGlowBlue 1s forwards 5s 1;
@@ -118,7 +187,7 @@
 }
 
 /*Brode logo*/
-#interactiveBrogo{
+#interactiveBrogo {
   z-index: 0;
   display: flex;
   justify-content: center;
@@ -128,31 +197,24 @@
   border-radius: 100%;
   filter: brightness(0.1);
   width: 100%;
-  animation: brogoRotateIdle 2s ease 4s forwards;
-}
-#interactiveBrogo img:hover {
-  animation: brogoRotateOnHover 500ms ease-in-out unset;
+  animation: brogoRotateIdle 2s cubic-bezier(1, 0, 0, 1) 4s forwards;
 }
 @keyframes brogoRotateIdle {
-  0%{
+  0% {
+    box-shadow: none;
+    filter: brightness(0.1);
     transform: rotate(0);
     border-radius: 100%;
-    filter: brightness(0.1);
   }
   50% {
+    box-shadow: 0 0 50px var(--colorSecondary);
+    filter: none;
     transform: rotateZ(20deg);
     border-radius: 45px;
-    filter: none;
   }
   100% {
     transform: rotate(0);
     border-radius: 100%;
-  }
-}
-@keyframes brogoRotateOnHover {
-  to{
-    transform: rotateZ(20deg);
-    border-radius: 45px;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -160,64 +222,43 @@
     font-size: 1em;
     text-align: center;
   }
-  .homeWrapper{
+  .homeWrapper {
     flex-direction: column;
   }
 }
 
-/*NAVBAR*/
-#navbarContainer {
-  position: fixed;
-  left: 0;
-  height: 100%;
-  background: #171717;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0 10px 0 10px;
-  box-shadow: 2px 0 15px #000;
-  font-size: 2em;
-  width: 55px;
+/*About section*/
+.about-me{
+ grid-area: me; 
 }
-#navbarContainer a {
-  filter: brightness(0.25);
-  text-shadow: 0 0 2.5px #000;
-  transition: all 250ms ease-in-out;
+.about-web{
+  grid-area: web;
 }
-#navbarContainer a:hover {
-  filter: brightness(1);
-  text-shadow: 0 0 20px;
+.about-other{
+  grid-area: other;
 }
-#projectsNavButton {
-  font-size: 0.75937rem;
+.about-container{
+  padding: 2%;
+  display: grid;
+  grid-template-areas: 
+  'me web'
+  'other web'
+  ;
 }
-#contactNavButton {
-  font-size: 1.13875rem;
+.about-section{
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5rem;
 }
-@media only screen and (max-width: 600px) {
-  #navbarContainer a {
-    filter: none;
-  }
-  .homeWrapper{
-    padding: 5% 2.5% 5% 2.5%;
-  }
-  #neonHi {
-    font-size: 20vw;
-  }
-  .content {
-    width: 100vw;
-    margin: 0 !important;
-  }
-  #navbarContainer {
-    height: 10vh;
-    width: 100%;
-    bottom: 0;
-    flex-direction: row;
-    padding: 1% 0 1% 0;
-  }
-  #navbarContainer:active {
-    filter: brightness(1);
-    text-shadow: 0 0 20px;
+@media only screen and (max-width: 1100px) {
+  .about-container{
+    padding: 2%;
+    display: grid;
+    grid-template-areas: 
+    'me'
+    'web'
+    'other'
+    ;
   }
 }
+
