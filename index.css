@@ -1,10 +1,13 @@
-#content {
+.content {
   position: absolute;
   width: calc(100vw - 75px);
   height: 100%;
   top: 0;
   right: 0;
   margin: 0 0 0 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .homeWrapper {
   width: 100%;
@@ -12,7 +15,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 7% 1% 7.5% 1%;
+  padding: 7% 1% 7% 1%;
 }
 
 /*neon glow part and neon glow animations*/
@@ -63,7 +66,6 @@
 #neonBrodeRap :nth-child(5) {
   animation: neonGlowLightblue 1s forwards 8.25s 1;
 }
-
 @keyframes neonGlowBlue {
   from {
     color: #111;
@@ -116,9 +118,14 @@
 }
 
 /*Brode logo*/
+#interactiveBrogo{
+  display: flex;
+  justify-content: center;
+}
 #interactiveBrogo img {
   border-radius: 100%;
   filter: brightness(0.1);
+  width: 60%;
   animation: brogoRotateIdle 2s ease 4s forwards;
 }
 #interactiveBrogo img:hover {
@@ -144,6 +151,11 @@
   to{
     transform: rotateZ(20deg);
     border-radius: 45px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .homeWrapper{
+    flex-direction: column;
   }
 }
 
@@ -178,9 +190,9 @@
   font-size: 1.13875rem;
 }
 @media only screen and (max-width: 600px) {
-  #content {
-    width: 100%;
-    margin: 0;
+  .content {
+    width: 100vw;
+    margin: 0 !important;
   }
   #navbarContainer {
     height: 10vh;
