@@ -3,15 +3,151 @@
   width: calc(100vw - 75px);
   height: 100%;
   top: 0;
+  right: 0;
   margin: 0 0 0 75px;
 }
-#homeWrapper {
+.homeWrapper {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  padding: 7% 1% 7.5% 1%;
 }
+
+/*neon glow part and neon glow animations*/
+#neonHi {
+  font-size: 7vw;
+  color: #0f0f0f;
+  text-shadow: none;
+}
+#neonHi :nth-child(1) {
+  animation: neonGlowBlue 1s forwards 1s 1;
+}
+#neonHi :nth-child(2) {
+  animation: neonGlowLightblue 1s forwards 2s 1;
+}
+#neonHi :nth-child(3) {
+  animation: neonGlowBlue 1s forwards 2.25s 1;
+}
+#neonHi :nth-child(5) {
+  animation: neonGlowLightblueFlicker 1s forwards 3.5s 1;
+}
+#neonHi :nth-child(6) {
+  animation: neonGlowBlueOnAndOff 5s forwards 4s infinite;
+}
+#neonHi :nth-child(7) {
+  animation: neonGlowBlueOnAndOff 5s forwards 5s infinite;
+}
+#neonHi :nth-child(8) {
+  animation: neonGlowBlueOnAndOff 5s forwards 6s infinite;
+}
+
+#neonBrodeRap {
+  font-size: 1.75vw;
+  color: #101010;
+  text-shadow: 0 0 0.5px;
+  transform: translateY(-2vh);
+}
+
+#neonBrodeRap :nth-child(1) {
+  /*animation: name duration timing-function delay;*/
+  animation: neonGlowBlue 1s forwards 5s 1;
+}
+#neonBrodeRap :nth-child(2) {
+  animation: neonGlowLightblue 1s forwards 6s 1;
+}
+#neonBrodeRap :nth-child(4) {
+  animation: neonGlowBlue 1s forwards 7.25s 1;
+}
+#neonBrodeRap :nth-child(5) {
+  animation: neonGlowLightblue 1s forwards 8.25s 1;
+}
+
+@keyframes neonGlowBlue {
+  from {
+    color: #111;
+  }
+  to {
+    color: #0080ff;
+    text-shadow: 0 0 50px #0080ff;
+  }
+}
+@keyframes neonGlowBlueOnAndOff {
+  25% {
+    color: #111;
+    text-shadow: none;
+  }
+  77.5% {
+    color: #0080ff;
+    text-shadow: 0 0 100px #0080ff;
+  }
+}
+@keyframes neonGlowLightblue {
+  from {
+    color: #111;
+  }
+  to {
+    color: #add8e6;
+    text-shadow: 0 0 20px #add8e6;
+  }
+}
+@keyframes neonGlowLightblueFlicker {
+  0% {
+    color: #add8e6;
+    text-shadow: 0 0 20px #add8e6;
+  }
+  15% {
+    color: #111;
+    text-shadow: none;
+  }
+  20% {
+    color: #add8e6;
+    text-shadow: 0 0 20px #add8e6;
+  }
+  50% {
+    color: #111;
+    text-shadow: none;
+  }
+  100% {
+    color: #add8e6;
+    text-shadow: 0 0 20px #add8e6;
+  }
+}
+
+/*Brode logo*/
+#interactiveBrogo img {
+  border-radius: 100%;
+  filter: brightness(0.1);
+  animation: brogoRotateIdle 2s ease 4s forwards;
+}
+#interactiveBrogo img:hover {
+  animation: brogoRotateOnHover 500ms ease-in-out unset;
+}
+@keyframes brogoRotateIdle {
+  0%{
+    transform: rotate(0);
+    border-radius: 100%;
+    filter: brightness(0.1);
+  }
+  50% {
+    transform: rotateZ(20deg);
+    border-radius: 45px;
+    filter: none;
+  }
+  100% {
+    transform: rotate(0);
+    border-radius: 100%;
+  }
+}
+@keyframes brogoRotateOnHover {
+  to{
+    transform: rotateZ(20deg);
+    border-radius: 45px;
+  }
+}
+
+/*NAVBAR*/
 #navbarContainer {
   position: fixed;
   left: 0;
@@ -25,6 +161,21 @@
   box-shadow: 2px 0 15px #000;
   font-size: 2em;
   width: 55px;
+}
+#navbarContainer a {
+  filter: brightness(0.1);
+  text-shadow: 0 0 2.5px #000;
+  transition: all 250ms ease-in-out;
+}
+#navbarContainer a:hover {
+  filter: brightness(1);
+  text-shadow: 0 0 20px;
+}
+#projectsNavButton {
+  font-size: 0.75937rem;
+}
+#contactNavButton {
+  font-size: 1.13875rem;
 }
 @media only screen and (max-width: 600px) {
   #content {
@@ -42,18 +193,4 @@
     filter: brightness(1);
     text-shadow: 0 0 20px;
   }
-}
-#navbarContainer a {
-  filter: brightness(10%);
-  text-shadow: 0 0 2.5px #000;
-}
-#projectsNavButton {
-  font-size: 0.75937rem;
-}
-#contactNavButton {
-  font-size: 1.13875rem;
-}
-#navbarContainer a:hover {
-  filter: brightness(1);
-  text-shadow: 0 0 20px;
 }

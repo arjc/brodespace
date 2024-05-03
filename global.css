@@ -11,7 +11,8 @@ body {
   padding: 0 0 0 0;
   border: none;
   overflow-x: hidden;
-  background: #2a2a2a;
+  scroll-behavior: smooth;
+  background: #1f1f1f;
   font-family: "Courier New", Courier, monospace;
 }
 #construction {
