@@ -12,7 +12,7 @@ body {
   border: none;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: #1f1f1f;
+  background: #1a1a1a;
   font-family: "Courier New", Courier, monospace;
 }
 #construction {
@@ -20,7 +20,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  background: url("dbrodepattern.png");
+  background: url("assets/dbrodepattern.png");
   padding: 0.5%;
   margin: 0 0 0 0;
   border: solid 2px;
