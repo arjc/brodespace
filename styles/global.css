@@ -20,7 +20,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  background: url("assets/dbrodepattern.png");
+  background: url("/assets/dbrodepattern.png");
   padding: 0.5%;
   margin: 0 0 0 0;
   border: solid 2px;
