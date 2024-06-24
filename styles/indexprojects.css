@@ -1,31 +1,50 @@
-.container {  display: grid;
+.container {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 2.5px 2.5px;
     grid-auto-flow: row;
     grid-template-areas:
-      "SCHOOL YOUTUBE YOUTUBE AI AI"
-      "BLOG YOUTUBE YOUTUBE GAMES GAMES"
-      "VIDEO VIDEO VIDEO GAMES GAMES"
-      "VIDEO VIDEO VIDEO EDITS EDITS"
-      "REPO ARCHIVE ARCHIVE ARCHIVE ARCHIVE";
-  }
-  
-  .VIDEO { grid-area: VIDEO; }
-  
-  .ARCHIVE { grid-area: ARCHIVE; }
-  
-  .REPO { grid-area: REPO; }
-  
-  .GAMES { grid-area: GAMES; }
-  
-  .YOUTUBE { grid-area: YOUTUBE; }
-  
-  .EDITS { grid-area: EDITS; }
-  
-  .AI { grid-area: AI; }
-  
-  .SCHOOL { grid-area: SCHOOL; }
-  
-  .BLOG { grid-area: BLOG; }
-  
+        "SCHOOL YOUTUBE YOUTUBE AI AI"
+        "BLOG YOUTUBE YOUTUBE GAMES GAMES"
+        "VIDEO VIDEO VIDEO GAMES GAMES"
+        "VIDEO VIDEO VIDEO EDITS EDITS"
+        "REPO ARCHIVE ARCHIVE ARCHIVE ARCHIVE";
+}
+
+.VIDEO {
+    grid-area: VIDEO;
+    background: url();
+}
+
+.ARCHIVE {
+    grid-area: ARCHIVE;
+}
+
+.REPO {
+    grid-area: REPO;
+}
+
+.GAMES {
+    grid-area: GAMES;
+}
+
+.YOUTUBE {
+    grid-area: YOUTUBE;
+}
+
+.EDITS {
+    grid-area: EDITS;
+}
+
+.AI {
+    grid-area: AI;
+}
+
+.SCHOOL {
+    grid-area: SCHOOL;
+}
+
+.BLOG {
+    grid-area: BLOG;
+}
