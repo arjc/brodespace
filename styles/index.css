@@ -1,264 +1,82 @@
 body{
-  display: grid;
-  grid-template-areas: 'dum con';
-}
-#dummy{
-  display: block;
-  width: 75px;
-  grid-area: dum;
-}
-/*Home means content... do not be confused. I just hate life at this point.*/
-#Home {
-  position: absolute;
-  width: calc(100vw - 80px) !important;
-  height: 100%;
-  top: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  grid-area: con;
-}
-/*NAVBAR*/
-#navbarContainer {
-  position: fixed;
-  left: 0;
-  height: 100%;
-  background: #171717;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0 10px 0 10px;
-  box-shadow: 2px 0 15px #000;
-  font-size: 2em;
-  width: 55px;
-}
-#navbarContainer a {
-  filter: brightness(0.25);
-  text-shadow: 0 0 2.5px #000;
-  transition: all 250ms ease-in-out;
-}
-#navbarContainer a:hover {
-  filter: brightness(1);
-  text-shadow: 0 0 20px;
-}
-#projectsNavButton {
-  font-size: 0.75937rem;
-}
-#contactNavButton {
-  font-size: 1.13875rem;
-}
-@media only screen and (max-width: 600px) {
+    display: grid;
+    grid-template-areas: 'DUM CON';
+  }
   #dummy{
-    display: none;
+    display: block;
+    width: 75px;
+    grid-area: DUM;
+  }
+  /*Home means content... do not be confused. I just hate life at this point.*/
+  #Home {
+    position: absolute;
+    width: calc(100vw - 80px) !important;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: CON;
+  }
+  /*NAVBAR*/
+#navbarContainer {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    background: #171717;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    box-shadow: 2px 0 15px #000;
+    font-size: 2em;
+    width: 55px;
   }
   #navbarContainer a {
-    filter: none;
+    filter: brightness(0.25);
+    text-shadow: 0 0 2.5px #000;
+    transition: all 250ms ease-in-out;
   }
-  .homeWrapper {
-    padding: 5% 2.5% 5% 2.5%;
-  }
-  #neonHi {
-    font-size: 20vw;
-  }
-  .content {
-    width: 100vw;
-    margin: 0 !important;
-  }
-  #navbarContainer {
-    height: 10vh;
-    width: 100%;
-    bottom: 0;
-    flex-direction: row;
-    padding: 1% 0 1% 0;
-  }
-  #navbarContainer:active {
+  #navbarContainer a:hover {
     filter: brightness(1);
     text-shadow: 0 0 20px;
   }
-}
-
-.homeWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1%;
-}
-/*neon glow part and neon glow animations*/
-#neonHi {
-  font-size: 5em;
-  font-weight: 1000;
-  color: #0f0f0f;
-  text-shadow: none;
-}
-#neonHi :nth-child(1) {
-  animation: neonGlowBlue 1s forwards 1s 1;
-}
-#neonHi :nth-child(2) {
-  animation: neonGlowLightblue 1s forwards 2s 1;
-}
-#neonHi :nth-child(3) {
-  animation: neonGlowBlue 1s forwards 2.25s 1;
-}
-#neonHi :nth-child(5) {
-  animation: neonGlowLightblueFlicker 1s forwards 3.5s 1;
-}
-#neonHi :nth-child(6) {
-  animation: neonGlowBlueOnAndOff 5s forwards 4s infinite;
-}
-#neonHi :nth-child(7) {
-  animation: neonGlowBlueOnAndOff 5s forwards 5s infinite;
-}
-#neonHi :nth-child(8) {
-  animation: neonGlowBlueOnAndOff 5s forwards 6s infinite;
-}
-
-#neonBrodeRap {
-  font-size: 2em;
-  color: #101010;
-  text-shadow: 0 0 0.5px;
-  transform: translateY(-2vh);
-}
-#neonBrodeRap :nth-child(1) {
-  /*animation: name duration timing-function delay;*/
-  animation: neonGlowBlue 1s forwards 5s 1;
-}
-#neonBrodeRap :nth-child(2) {
-  animation: neonGlowLightblue 1s forwards 6s 1;
-}
-#neonBrodeRap :nth-child(4) {
-  animation: neonGlowBlue 1s forwards 7.25s 1;
-}
-#neonBrodeRap :nth-child(5) {
-  animation: neonGlowLightblue 1s forwards 8.25s 1;
-}
-@keyframes neonGlowBlue {
-  from {
-    color: #111;
+  #projectsNavButton {
+    font-size: 0.75937rem;
   }
-  to {
-    color: #0080ff;
-    text-shadow: 0 0 50px #0080ff;
+  #contactNavButton {
+    font-size: 1.13875rem;
   }
-}
-@keyframes neonGlowBlueOnAndOff {
-  25% {
-    color: #111;
-    text-shadow: none;
+  @media only screen and (max-width: 600px) {
+    #dummy{
+      display: none;
+    }
+    #navbarContainer a {
+      filter: none;
+    }
+    .homeWrapper {
+      padding: 5% 2.5% 5% 2.5%;
+    }
+    #neonHi {
+      font-size: 20vw;
+    }
+    .content {
+      width: 100vw;
+      margin: 0 !important;
+    }
+    #navbarContainer {
+      height: 10vh;
+      width: 100%;
+      bottom: 0;
+      flex-direction: row;
+      padding: 1% 0 1% 0;
+    }
+    #navbarContainer:active {
+      filter: brightness(1);
+      text-shadow: 0 0 20px;
+    }
   }
-  77.5% {
-    color: #0080ff;
-    text-shadow: 0 0 100px #0080ff;
-  }
-}
-@keyframes neonGlowLightblue {
-  from {
-    color: #111;
-  }
-  to {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-}
-@keyframes neonGlowLightblueFlicker {
-  0% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-  15% {
-    color: #111;
-    text-shadow: none;
-  }
-  20% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-  50% {
-    color: #111;
-    text-shadow: none;
-  }
-  100% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-}
-
-/*Brode logo*/
-#interactiveBrogo {
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  margin: 5% 0 5% 0;
-}
-#interactiveBrogo img {
-  border-radius: 100%;
-  filter: brightness(0.1);
-  width: 100%;
-  animation: brogoRotateIdle 2s cubic-bezier(1, 0, 0, 1) 4s forwards;
-}
-@keyframes brogoRotateIdle {
-  0% {
-    box-shadow: none;
-    filter: brightness(0.1);
-    transform: rotate(0);
-    border-radius: 100%;
-  }
-  50% {
-    box-shadow: 0 0 50px var(--colorSecondary);
-    filter: none;
-    transform: rotateZ(20deg);
-    border-radius: 45px;
-  }
-  100% {
-    transform: rotate(0);
-    border-radius: 100%;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  #neonBrodeRap {
-    font-size: 1em;
-    text-align: center;
-  }
-  .homeWrapper {
-    flex-direction: column;
-  }
-}
-
-/*About section*/
-.about-me{
- grid-area: me; 
-}
-.about-web{
-  grid-area: web;
-}
-.about-other{
-  grid-area: other;
-}
-.about-container{
-  padding: 2%;
-  display: grid;
-  grid-template-areas: 
-  'me web'
-  'other web'
-  ;
-}
-.about-section{
-  text-align: center;
-  padding: 20px;
-  font-size: 1.5rem;
-}
-@media only screen and (max-width: 1100px) {
-  .about-container{
-    padding: 2%;
-    display: grid;
-    grid-template-areas: 
-    'me'
-    'web'
-    'other'
-    ;
-  }
-}
-
+  
