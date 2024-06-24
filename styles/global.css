@@ -12,7 +12,7 @@ body {
   border: none;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: #1a1a1a !important;
+  background: #1a1a1a;
   font-family: "Courier New", Courier, monospace;
 }
 #construction {
