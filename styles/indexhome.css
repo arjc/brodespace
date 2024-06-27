@@ -9,7 +9,7 @@
 #neonHi {
   font-size: 5em;
   font-weight: 1000;
-  color: #0f0f0f;
+  color: #000;
   text-shadow: none;
 }
 #neonHi :nth-child(1) {
@@ -36,7 +36,7 @@
 
 #neonBrodeRap {
   font-size: 2em;
-  color: #101010;
+  color: #000;
   text-shadow: 0 0 0.5px;
   transform: translateY(-2vh);
 }
@@ -55,7 +55,7 @@
 }
 @keyframes neonGlowBlue {
   from {
-    color: #111;
+    color: #000;
   }
   to {
     color: #0080ff;
@@ -64,7 +64,7 @@
 }
 @keyframes neonGlowBlueOnAndOff {
   25% {
-    color: #111;
+    color: #000;
     text-shadow: none;
   }
   77.5% {
@@ -74,7 +74,7 @@
 }
 @keyframes neonGlowLightblue {
   from {
-    color: #111;
+    color: #000;
   }
   to {
     color: #add8e6;
@@ -87,7 +87,7 @@
     text-shadow: 0 0 20px #add8e6;
   }
   15% {
-    color: #111;
+    color: #000;
     text-shadow: none;
   }
   20% {
@@ -95,7 +95,7 @@
     text-shadow: 0 0 20px #add8e6;
   }
   50% {
-    color: #111;
+    color: #000;
     text-shadow: none;
   }
   100% {
@@ -113,14 +113,14 @@
 }
 #interactiveBrogo img {
   border-radius: 100%;
-  filter: opacity(2%) brightness(50%);
+  filter: brightness(0);
   width: 100%;
   animation: brogoRotateIdle 2s cubic-bezier(1, 0, 0, 1) 4s forwards;
 }
 @keyframes brogoRotateIdle {
   0% {
     box-shadow: none;
-    filter: opacity(2%) brightness(50%);
+    filter: brightness(0);
     transform: rotate(0);
     border-radius: 100%;
   }

@@ -61,7 +61,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  .dummy {
+  #dummy {
     display: none;
   }
 
@@ -73,7 +73,7 @@ body {
     padding: 5% 2.5% 5% 2.5%;
   }
 
-  .neonHi {
+  #neonHi {
     font-size: 20vw;
   }
 

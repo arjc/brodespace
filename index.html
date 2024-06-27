@@ -19,7 +19,7 @@
     <div id="Home" class="content">
       <!--WHATEVER WAS ABOVE ENDS HERE. WEB CONTENTS STARS HERE.-->
       <div class="homeWrapper">
-        <div id="neonHiContainer">
+        <div id="neonHiContainer" class="hidden">
           <div id="neonHi">
             <span>Hi,</span> <span>I</span> <span>am</span>
             <br />
@@ -34,8 +34,8 @@
           </div>
         </div>
         <!--Brode Hi end-->
-        <div id="interactiveBrogo">
-          <img src="assets/Brode 1x1.png" alt="snake game" onclick="snake()" />
+        <div id="interactiveBrogo" class="hidden">
+          <img src="assets/Brode 1x1.png" alt="brode stripes logo" onclick="snake()" />
         </div>
         <!--Interactive brogo end-->
       </div>
@@ -43,7 +43,8 @@
         <div class="about-section about-me hidden">
           <h2>ABOUT ME</h2>
           <p>
-            Hey there! Welcome to <strong>Brodespace</strong>. My name is Arjun Liji.
+            Hey there! Welcome to <strong>Brodespace</strong>. My name is Arjun
+            Liji.
             <br />
             I like to go by the name Brode because I think it sounds really
             cool. Well, to be honest, it's mostly just a username I use
@@ -79,7 +80,7 @@
         </div>
       </div>
       <!--homeWrapper end-->
-      <div class="projectsWrapper" class="#Projects">
+      <div class="projectsWrapper" id="Projects">
         <h1>THINGS BRODE MADE</h1>
         <div class="container">
           <div class="VIDEO">VIDEO</div>
@@ -94,7 +95,7 @@
         </div>
       </div>
       <!--projectsWrapper end-->
-      <div class="contactWrapper" class="#Contact"></div>
+      <div class="contactWrapper" id="Contact"></div>
       <!--contactWrapper end-->
     </div>
     <!--#content end-->
