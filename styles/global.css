@@ -1,8 +1,9 @@
 :root {
-  --colorPrimary: #0015ff;
+  --colorPrimary: #0077ff;
   --colorSecondary: #009bff;
   --colorText: #34b1ff;
 }
+
 html,
 body {
   height: 100vh;
@@ -13,8 +14,30 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   background: #131313;
-  font-family: "Courier New", Courier, monospace; 
+  font-family: "Courier New", Courier, monospace;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+  border: dotted 3px #000;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: var(--colorSecondary);
+  border-radius: 20px;
+  transition: 200ms all ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorPrimary);
+  box-shadow: 0 0 2px var(--colorPrimary);
+}
+
 #construction {
   z-index: 2;
   position: fixed;
@@ -31,31 +54,37 @@ body {
   text-align: center;
   animation: wip 12.5s ease-in-out forwards;
 }
+
 @keyframes wip {
   0% {
     top: -100px;
     color: #111;
   }
+
   10% {
     top: 0;
     color: #000;
   }
+
   20% {
     color: var(--colorSecondary);
     filter: hue-rotate(120deg);
     text-shadow: 0 0 15px;
   }
+
   75% {
     text-shadow: 0 0 20px;
     filter: hue-rotate(0deg);
     top: 0;
     color: var(--colorSecondary);
   }
+
   80% {
     color: #000;
     text-shadow: none;
     top: 0;
   }
+
   100% {
     color: #000;
     top: -500px;
@@ -66,6 +95,7 @@ body {
   color: var(--colorPrimary);
   text-shadow: 0 0 5px var(--colorPrimary);
 }
+
 .glowSecondary {
   color: var(--colorSecondary);
   text-shadow: 0 0 5px var(--colorSecondary);
