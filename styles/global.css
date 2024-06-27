@@ -1,7 +1,7 @@
 :root {
-  --colorPrimary: #0077ff;
+  --colorPrimary: #0080ff;
   --colorSecondary: #009bff;
-  --colorText: #34b1ff;
+  --colorText: #add8e6;
 }
 
 html,
@@ -15,6 +15,23 @@ body {
   scroll-behavior: smooth;
   background: #131313;
   font-family: "Courier New", Courier, monospace;
+}
+
+h2 {
+  color: var(--colorPrimary);
+  letter-spacing: 5px;
+  text-decoration: underline dotted;
+  text-shadow: 0 0 30px var(--colorPrimary);
+}
+
+p {
+  color: var(--colorText);
+  text-shadow: 0 0 30px var(--colorText);
+}
+
+a {
+  text-decoration: none;
+  color: var(--colorText);
 }
 
 ::-webkit-scrollbar {
@@ -38,13 +55,15 @@ body {
   box-shadow: 0 0 2px var(--colorPrimary);
 }
 
-.hidden{
+.hidden {
   filter: brightness(0);
-  transition: 750ms all ease;
+  transition: 1000ms all ease;
+  text-shadow: none;
+  text-decoration: none;
 }
-.show{
+
+.show {
   filter: none;
-  text-shadow: 0 0 20px var(--colorText);
 }
 
 #construction {
@@ -108,9 +127,4 @@ body {
 .glowSecondary {
   color: var(--colorSecondary);
   text-shadow: 0 0 5px var(--colorSecondary);
-}
-
-a {
-  text-decoration: none;
-  color: var(--colorText);
 }

@@ -13,16 +13,11 @@ body {
 /*Home means content... do not be confused. I just hate life at this point.*/
 #Home {
   grid-area: CON;
-
   position: absolute;
   width: calc(100vw - 80px) !important;
   height: 100%;
   top: 0;
   right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
 /*NAVBAR*/
@@ -48,8 +43,12 @@ body {
 }
 
 .navbarContainer a:hover {
-  filter: brightness(1);
+  filter: none;
   text-shadow: 0 0 20px;
+}
+
+.active {
+  filter: none;
 }
 
 .projectsNavButton {
@@ -77,7 +76,7 @@ body {
     font-size: 20vw;
   }
 
-  .content {
+  section{
     width: 100vw;
     margin: 0 !important;
   }
