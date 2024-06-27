@@ -113,14 +113,14 @@
 }
 #interactiveBrogo img {
   border-radius: 100%;
-  filter: brightness(0.1);
+  filter: opacity(2%) brightness(50%);
   width: 100%;
   animation: brogoRotateIdle 2s cubic-bezier(1, 0, 0, 1) 4s forwards;
 }
 @keyframes brogoRotateIdle {
   0% {
     box-shadow: none;
-    filter: brightness(0.1);
+    filter: opacity(2%) brightness(50%);
     transform: rotate(0);
     border-radius: 100%;
   }
