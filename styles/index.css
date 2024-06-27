@@ -1,16 +1,19 @@
 body {
   display: grid;
+  grid-gap: 5%;
   grid-template-areas: 'DUM CON';
 }
 
 #dummy {
+  grid-area: DUM;
   display: block;
   width: 75px;
-  grid-area: DUM;
 }
 
 /*Home means content... do not be confused. I just hate life at this point.*/
 #Home {
+  grid-area: CON;
+
   position: absolute;
   width: calc(100vw - 80px) !important;
   height: 100%;
@@ -20,7 +23,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  grid-area: CON;
 }
 
 /*NAVBAR*/
