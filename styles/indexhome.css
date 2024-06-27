@@ -140,7 +140,7 @@
     font-size: 1em;
     text-align: center;
   }
-  .homeWrapper {
+  #homeWrapper {
     flex-direction: column;
   }
 }

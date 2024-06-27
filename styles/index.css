@@ -26,7 +26,7 @@ body {
 }
 
 /*NAVBAR*/
-#navbarContainer {
+.navbarContainer {
   position: fixed;
   left: 0;
   height: 100%;
@@ -36,36 +36,36 @@ body {
   justify-content: space-evenly;
   align-items: center;
   padding: 0 10px 0 10px;
-  box-shadow: 2px 0 15px #000;
+  box-shadow: 2px 0 15px .000;
   font-size: 2em;
   width: 55px;
 }
 
-#navbarContainer a {
+.navbarContainer a {
   filter: brightness(0.25);
-  text-shadow: 0 0 2.5px #000;
+  text-shadow: 0 0 2.5px .000;
   transition: all 250ms ease-in-out;
 }
 
-#navbarContainer a:hover {
+.navbarContainer a:hover {
   filter: brightness(1);
   text-shadow: 0 0 20px;
 }
 
-#projectsNavButton {
+.projectsNavButton {
   font-size: 0.75937rem;
 }
 
-#contactNavButton {
+.contactNavButton {
   font-size: 1.13875rem;
 }
 
 @media only screen and (max-width: 600px) {
-  #dummy {
+  .dummy {
     display: none;
   }
 
-  #navbarContainer a {
+  .navbarContainer a {
     filter: none;
   }
 
@@ -73,7 +73,7 @@ body {
     padding: 5% 2.5% 5% 2.5%;
   }
 
-  #neonHi {
+  .neonHi {
     font-size: 20vw;
   }
 
@@ -82,7 +82,7 @@ body {
     margin: 0 !important;
   }
 
-  #navbarContainer {
+  .navbarContainer {
     height: 10vh;
     width: 100%;
     bottom: 0;
@@ -90,7 +90,7 @@ body {
     padding: 1% 0 1% 0;
   }
 
-  #navbarContainer:active {
+  .navbarContainer:active {
     filter: brightness(1);
     text-shadow: 0 0 20px;
   }
