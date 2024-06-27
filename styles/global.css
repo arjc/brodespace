@@ -38,6 +38,15 @@ body {
   box-shadow: 0 0 2px var(--colorPrimary);
 }
 
+.hidden{
+  filter: brightness(0);
+  transition: 750ms all ease;
+}
+.show{
+  filter: none;
+  text-shadow: 0 0 20px var(--colorText);
+}
+
 #construction {
   z-index: 2;
   position: fixed;
