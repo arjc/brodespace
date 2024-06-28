@@ -128,3 +128,23 @@ a {
   color: var(--colorSecondary);
   text-shadow: 0 0 5px var(--colorSecondary);
 }
+.smallScreen{
+  display: none;
+}
+@media only screen and (max-width: 650px) {
+  .main-wrapper{
+    display: none;
+  }
+  .smallScreen{
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .smallScreen h1{
+    font-size: 3.5rem;
+    color: var(--colorPrimary);
+    text-shadow: 0 0 5rem var(--colorPrimary);
+  }
+}
