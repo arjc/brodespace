@@ -130,6 +130,7 @@ a {
 }
 .smallScreen{
   display: none;
+  width: 90%;
 }
 @media only screen and (max-width: 650px) {
   .main-wrapper{
@@ -143,7 +144,7 @@ a {
     transform: translate(-50%, -50%);
   }
   .smallScreen h1{
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: var(--colorPrimary);
     text-shadow: 0 0 5rem var(--colorPrimary);
   }
