@@ -6,7 +6,7 @@ body {
 
 #dummy {
   grid-area: DUM;
-  display: block;
+  height: 100%;
   width: 75px;
 }
 
@@ -34,6 +34,7 @@ body {
   box-shadow: 2px 0 15px .000;
   font-size: 2em;
   width: 55px;
+  z-index: 10;
 }
 
 .navbarContainer a {
@@ -89,8 +90,24 @@ body {
     padding: 1% 0 1% 0;
   }
 
-  .navbarContainer:active {
-    filter: brightness(1);
+  .navbarContainer a{
+    filter: none;
     text-shadow: 0 0 20px;
   }
+}
+
+.scroll-arrow{
+  position: static;
+  width: 25px;
+  height: 25px;
+  top: 100vh;
+  left: 50%;
+  transform: rotate(45deg);
+  content: 'sdfj';
+  border: solid var(--colorSecondary);
+  box-shadow: 0 0 5px var(--colorSecondary);
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px;
+  border-left: 1px;
 }
