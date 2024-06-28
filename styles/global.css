@@ -60,6 +60,7 @@ a {
   transition: 1000ms all ease;
   text-shadow: none;
   text-decoration: none;
+  transition: 1000ms all ease;
 }
 
 .show {
@@ -131,6 +132,7 @@ a {
 .smallScreen{
   display: none;
   width: 90%;
+  transition: 300ms all ease;
 }
 @media only screen and (max-width: 650px) {
   .main-wrapper{
