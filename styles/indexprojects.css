@@ -10,41 +10,66 @@
         "VIDEO VIDEO VIDEO GAMES GAMES"
         "VIDEO VIDEO VIDEO EDITS EDITS"
         "REPO ARCHIVE ARCHIVE ARCHIVE ARCHIVE";
+    margin: 10%;
 }
 
-.VIDEO {
-    grid-area: VIDEO;
-    background: url();
+.projects-cards-container div {
+    padding: 30px 5px 30px 5px;
+    border-radius: 3px;
+    text-align: center;
+    align-content: center;
+    filter: brightness(50%);
+    border-radius: 10px;
+    background: #969696;
+    transition: 500ms all ease;
 }
 
-.ARCHIVE {
-    grid-area: ARCHIVE;
-}
-
-.REPO {
-    grid-area: REPO;
-}
-
-.GAMES {
-    grid-area: GAMES;
-}
-
-.YOUTUBE {
-    grid-area: YOUTUBE;
-}
-
-.EDITS {
-    grid-area: EDITS;
-}
-
-.AI {
-    grid-area: AI;
+.projects-cards-container div:hover {
+    filter: none;
+    border-radius: 1px;
 }
 
 .SCHOOL {
     grid-area: SCHOOL;
+    background-color: url();
+}
+
+.YOUTUBE {
+    grid-area: YOUTUBE;
+    background-color: url();
+}
+
+.AI {
+    grid-area: AI;
+    background-color: url();
 }
 
 .BLOG {
     grid-area: BLOG;
+    background-color: url();
+}
+
+.GAMES {
+    grid-area: GAMES;
+    background-color: url();
+}
+
+.VIDEO {
+    grid-area: VIDEO;
+    background-color: url();
+}
+
+.EDITS {
+    grid-area: EDITS;
+    background-color: url();
+}
+
+.REPO {
+    grid-area: REPO;
+    background-color: url();
+}
+
+.ARCHIVE {
+    grid-area: ARCHIVE;
+    background-color: url();
 }
