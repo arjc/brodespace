@@ -31,45 +31,45 @@
 
 .SCHOOL {
     grid-area: SCHOOL;
-    background-color: url();
+    background: url();
 }
 
 .YOUTUBE {
     grid-area: YOUTUBE;
-    background-color: url();
+    background: url();
 }
 
 .AI {
     grid-area: AI;
-    background-color: url();
+    background: url();
 }
 
 .BLOG {
     grid-area: BLOG;
-    background-color: url();
+    background: url();
 }
 
 .GAMES {
     grid-area: GAMES;
-    background-color: url();
+    background: url();
 }
 
 .VIDEO {
     grid-area: VIDEO;
-    background-color: url();
+    background: url();
 }
 
 .EDITS {
     grid-area: EDITS;
-    background-color: url();
+    background: url();
 }
 
 .REPO {
     grid-area: REPO;
-    background-color: url();
+    background: url();
 }
 
 .ARCHIVE {
     grid-area: ARCHIVE;
-    background-color: url();
+    background: url();
 }
