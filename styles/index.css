@@ -5,8 +5,8 @@ body {
 }
 
 #dummy {
+  display: block;
   grid-area: DUM;
-  height: 100%;
   width: 75px;
 }
 
