@@ -36,8 +36,20 @@ window.onscroll = () => {
     });
 };
 
-const brogoInteractive = document.querySelector("#interactiveBrogo img");
+//setTimeouts are used here for permanent styles (I Love no using css and js frameworks). 
+//TBH php is way better that dealing with this shit...
+
+//4 seconds
 setTimeout(() => {
-  brogoInteractive.style.filter = "none";
-  brogoInteractive.style.boxShadow = "0 0 30px var(--colorSecondary)";
+  document.querySelector("#interactiveBrogo img").style.filter = "none";
+  document.querySelector("#interactiveBrogo img").style.boxShadow = "0 0 30px var(--colorSecondary)";
 }, 4000);
+
+const scrollAr = document.querySelector(".scroll-arrow");
+let removingShowClassInterval = setInterval(() => {
+  scrollAr.classList.remove("show");
+}, 1000);
+setTimeout(() =>{
+  clearInterval(removingShowClassInterval);
+  scrollAr.classList.add("hidden")
+}, 1100);

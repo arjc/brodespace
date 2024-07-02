@@ -97,17 +97,16 @@ body {
 } */
 
 .scroll-arrow{
-  position: static;
-  width: 25px;
-  height: 25px;
-  top: 100vh;
-  left: 50%;
-  transform: rotate(45deg);
-  content: 'sdfj';
-  border: solid var(--colorSecondary);
-  box-shadow: 0 0 5px var(--colorSecondary);
-  border-top: 0;
-  border-right: 0;
-  border-bottom: 1px;
-  border-left: 1px;
+  position: absolute;
+  left: 45%;
+  font-size: 2.5rem;
+  top: 90vh;
+  font-weight: 900;
+  color: var(--colorSecondary);
+  text-shadow: 0 0 5px var(--colorSecondary);
+  animation: arrowReveal 250ms ease 10s 3 forwards;
+}
+@keyframes arrowReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
