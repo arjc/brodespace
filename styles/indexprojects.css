@@ -13,7 +13,7 @@
     margin: 10%;
 }
 
-.projects-cards-container div {
+.projects-cards-container a {
     padding: 75px;
     border-radius: 3px;
     text-align: center;
@@ -24,7 +24,7 @@
     transition: 500ms all ease;
 }
 
-.projects-cards-container div:hover {
+.projects-cards-container a:hover {
     filter: none;
     border-radius: 1px;
 }
