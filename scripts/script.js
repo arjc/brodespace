@@ -36,20 +36,17 @@ window.onscroll = () => {
     });
 };
 
-//setTimeouts are used here for permanent styles (I Love no using css and js frameworks). 
-//TBH php is way better that dealing with this shit...
-
-//4 seconds
+//setTimeouts are used here for permanent styles
 setTimeout(() => {
   document.querySelector("#interactiveBrogo img").style.filter = "none";
   document.querySelector("#interactiveBrogo img").style.boxShadow = "0 0 30px var(--colorSecondary)";
 }, 4000);
 
-const scrollAr = document.querySelector(".scroll-arrow");
-let removingShowClassInterval = setInterval(() => {
-  scrollAr.classList.remove("show");
-}, 1000);
-setTimeout(() =>{
-  clearInterval(removingShowClassInterval);
-  scrollAr.classList.add("hidden")
-}, 1100);
+function snake() {
+  const logo = document.querySelector("#interactiveBrogo img");
+  logo.style.transform = "rotate(360deg)";
+  logo.style.transition = "transform 1s ease";
+  setTimeout(() => {
+    logo.style.transform = "rotate(0deg)";
+  }, 1000);
+}

@@ -1,182 +1,146 @@
+.home-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
 .home-intro {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
   padding: 1%;
+  gap: 20px;
 }
-/*neon glow part and neon glow animations*/
+
 #neonHi {
-  font-size: 5em;
+  font-size: clamp(3em, 8vw, 5em);
   font-weight: 1000;
   color: #000;
   text-shadow: none;
 }
-#neonHi :nth-child(1) {
-  animation: neonGlowBlue 1s forwards 1s 1;
-}
-#neonHi :nth-child(2) {
-  animation: neonGlowLightblue 1s forwards 2s 1;
-}
-#neonHi :nth-child(3) {
-  animation: neonGlowBlue 1s forwards 2.25s 1;
-}
-#neonHi :nth-child(5) {
-  animation: neonGlowLightblueFlicker 1s forwards 3.5s 1;
-}
-#neonHi :nth-child(6) {
-  animation: neonGlowBlueOnAndOff 5s forwards 4s infinite;
-}
-#neonHi :nth-child(7) {
-  animation: neonGlowBlueOnAndOff 5s forwards 5s infinite;
-}
-#neonHi :nth-child(8) {
-  animation: neonGlowBlueOnAndOff 5s forwards 6s infinite;
-}
 
 #neonBrodeRap {
-  font-size: 2em;
+  font-size: clamp(1.5em, 4vw, 2em);
   color: #000;
   text-shadow: 0 0 0.5px;
   transform: translateY(-2vh);
 }
-#neonBrodeRap :nth-child(1) {
-  /*animation: name duration timing-function delay;*/
-  animation: neonGlowBlue 1s forwards 5s 1;
-}
-#neonBrodeRap :nth-child(2) {
-  animation: neonGlowLightblue 1s forwards 6s 1;
-}
-#neonBrodeRap :nth-child(4) {
-  animation: neonGlowBlue 1s forwards 7.25s 1;
-}
-#neonBrodeRap :nth-child(5) {
-  animation: neonGlowLightblue 1s forwards 8.25s 1;
-}
-@keyframes neonGlowBlue {
-  from {
-    color: #000;
-  }
-  to {
-    color: #0080ff;
-    text-shadow: 0 0 50px #0080ff;
-  }
-}
-@keyframes neonGlowBlueOnAndOff {
-  25% {
-    color: #000;
-    text-shadow: none;
-  }
-  77.5% {
-    color: #0080ff;
-    text-shadow: 0 0 100px #0080ff;
-  }
-}
-@keyframes neonGlowLightblue {
-  from {
-    color: #000;
-  }
-  to {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-}
-@keyframes neonGlowLightblueFlicker {
-  0% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-  15% {
-    color: #000;
-    text-shadow: none;
-  }
-  20% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-  50% {
-    color: #000;
-    text-shadow: none;
-  }
-  100% {
-    color: #add8e6;
-    text-shadow: 0 0 20px #add8e6;
-  }
-}
 
-/*Brode logo*/
 #interactiveBrogo {
   z-index: 0;
   display: flex;
   justify-content: center;
-  margin: 2.5% 0 2.5% 0;
+  margin: 2.5% 0;
+  width: 300px;
+  max-width: 30%;
 }
+
 #interactiveBrogo img {
   border-radius: 100%;
-  filter: brightness(0);
   width: 100%;
-  animation: brogoRotateIdle 2s cubic-bezier(1, 0, 0, 1) 4s forwards;
+  height: auto;
+  filter: brightness(0);
+  transition: all 0.3s ease;
 }
-@keyframes brogoRotateIdle {
-  0% {
-    box-shadow: none;
-    filter: brightness(0);
-    transform: rotate(0);
-    border-radius: 100%;
-  }
-  50% {
-    box-shadow: 0 0 50px var(--colorSecondary);
-    filter: none;
-    transform: rotateZ(20deg);
-    border-radius: 45px;
-  }
-  100% {
-    transform: rotate(0);
-    border-radius: 100%;
-  }
+
+/* Neon animations */
+#neonHi :nth-child(1) { animation: neonGlowBlue 1s forwards 1s 1; }
+#neonHi :nth-child(2) { animation: neonGlowLightblue 1s forwards 2s 1; }
+#neonHi :nth-child(3) { animation: neonGlowBlue 1s forwards 2.25s 1; }
+#neonHi :nth-child(5) { animation: neonGlowLightblueFlicker 1s forwards 3.5s 1; }
+#neonHi :nth-child(6) { animation: neonGlowBlueOnAndOff 5s forwards 4s infinite; }
+#neonHi :nth-child(7) { animation: neonGlowBlueOnAndOff 5s forwards 5s infinite; }
+#neonHi :nth-child(8) { animation: neonGlowBlueOnAndOff 5s forwards 6s infinite; }
+
+#neonBrodeRap :nth-child(1) { animation: neonGlowBlue 1s forwards 5s 1; }
+#neonBrodeRap :nth-child(2) { animation: neonGlowLightblue 1s forwards 6s 1; }
+#neonBrodeRap :nth-child(4) { animation: neonGlowBlue 1s forwards 7.25s 1; }
+#neonBrodeRap :nth-child(5) { animation: neonGlowLightblue 1s forwards 8.25s 1; }
+
+/* Keyframes */
+@keyframes neonGlowBlue {
+  from { color: #000; }
+  to { color: #0080ff; text-shadow: 0 0 50px #0080ff; }
 }
-@media only screen and (max-width: 1024px) {
-  #neonBrodeRap {
-    font-size: 1em;
-    text-align: center;
-  }
-  .home-wrapper {
+
+@keyframes neonGlowBlueOnAndOff {
+  25% { color: #000; text-shadow: none; }
+  77.5% { color: #0080ff; text-shadow: 0 0 100px #0080ff; }
+}
+
+@keyframes neonGlowLightblue {
+  from { color: #000; }
+  to { color: #add8e6; text-shadow: 0 0 20px #add8e6; }
+}
+
+@keyframes neonGlowLightblueFlicker {
+  0% { color: #add8e6; text-shadow: 0 0 20px #add8e6; }
+  15% { color: #000; text-shadow: none; }
+  20% { color: #add8e6; text-shadow: 0 0 20px #add8e6; }
+  50% { color: #000; text-shadow: none; }
+  100% { color: #add8e6; text-shadow: 0 0 20px #add8e6; }
+}
+
+@media (max-width: 768px) {
+  .home-intro {
     flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #interactiveBrogo {
+    display: none;
+  }
+
+  #neonHiContainer {
+    width: 100%;
   }
 }
 
-/*About section*/
-.about-me{
- grid-area: me; 
+.about-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.about-web{
-  grid-area: web;
+
+.about-me, .about-web, .about-other {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
-.about-other{
-  grid-area: other;
+
+.about-me:hover, .about-web:hover, .about-other:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
 }
-.about-container{
-  padding: 2%;
-  display: grid;
-  grid-template-areas: 
-  'me web'
-  'other web'
-  ;
-}
-.about-container div{
-  text-align: center;
-  padding: 20px;
-  font-size: 1.5rem;
-}
-@media only screen and (max-width: 1100px) {
-  .about-container{
-    padding: 2%;
-    display: grid;
-    grid-template-areas: 
-    'me'
-    'web'
-    'other'
-    ;
+
+@media (max-width: 768px) {
+  .home-intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  #interactiveBrogo {
+    display: none;
+  }
+
+  #neonHiContainer {
+    width: 100%;
+  }
+
+  .about-container {
+    padding: 1rem;
+  }
+
+  .about-me, .about-web, .about-other {
+    margin-bottom: 2rem;
+    padding: 1rem;
   }
 }
 

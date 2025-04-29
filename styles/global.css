@@ -1,4 +1,4 @@
-:root {
+  :root {
   --colorPrimary: #0080ff;
   --colorSecondary: #009bff;
   --colorText: #add8e6;
@@ -57,14 +57,17 @@ a {
 
 .hidden {
   filter: brightness(0);
-  transition: 1000ms all ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1000ms ease;
   text-shadow: none;
   text-decoration: none;
-  transition: 1000ms all ease;
 }
 
 .show {
   filter: none;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #construction {

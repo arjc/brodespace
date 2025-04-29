@@ -1,75 +1,118 @@
 .projects-cards-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 2.5px 2.5px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "SCHOOL YOUTUBE YOUTUBE AI AI"
-        "BLOG YOUTUBE YOUTUBE GAMES GAMES"
-        "VIDEO VIDEO VIDEO GAMES GAMES"
-        "VIDEO VIDEO VIDEO EDITS EDITS"
-        "REPO ARCHIVE ARCHIVE ARCHIVE ARCHIVE";
-    margin: 10%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .projects-cards-container a {
-    padding: 75px;
-    border-radius: 3px;
+    position: relative;
+    aspect-ratio: 1;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    align-content: center;
-    filter: brightness(50%);
-    border-radius: 10px;
-    background: #969696;
-    transition: 500ms all ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    z-index: 2;
+}
+
+.project-desc {
+    font-size: 0.9em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    padding: 0 15px;
+    z-index: 2;
+}
+
+/* Windows 8/10 style tile sizes for larger screens */
+@media (min-width: 768px) {
+    .YOUTUBE { grid-column: span 2; grid-row: span 2; }
+    .VIDEO { grid-column: span 3; grid-row: span 2; }
+    .GAMES { grid-column: span 2; grid-row: span 2; }
+    .ARCHIVE { grid-column: span 2; }
+}
+
+/* Windows-style tile colors */
+.SCHOOL { background-color: #0078D7; }
+.YOUTUBE { background-color: #E62117; }
+.AI { background-color: #00A4EF; }
+.BLOG { background-color: #7FBA00; }
+.GAMES { background-color: #FFB900; }
+.VIDEO { background-color: #F25022; }
+.EDITS { background-color: #737373; }
+.REPO { background-color: #8E44AD; }
+.ARCHIVE { background-color: #2C3E50; }
+
+/* Hover effects */
+.projects-cards-container a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.projects-cards-container a:hover::before {
+    opacity: 1;
+}
+
+.projects-cards-container a:hover .project-desc {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .projects-cards-container a:hover {
-    filter: none;
-    border-radius: 1px;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.SCHOOL {
-    grid-area: SCHOOL;
-    background: url();
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .projects-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .project-title {
+        font-size: 1em;
+    }
+    
+    .project-desc {
+        font-size: 0.8em;
+        opacity: 1;
+        transform: none;
+        position: static;
+        margin-top: 5px;
+    }
 }
 
-.YOUTUBE {
-    grid-area: YOUTUBE;
-    background: url();
-}
-
-.AI {
-    grid-area: AI;
-    background: url();
-}
-
-.BLOG {
-    grid-area: BLOG;
-    background: url();
-}
-
-.GAMES {
-    grid-area: GAMES;
-    background: url();
-}
-
-.VIDEO {
-    grid-area: VIDEO;
-    background: url();
-}
-
-.EDITS {
-    grid-area: EDITS;
-    background: url();
-}
-
-.REPO {
-    grid-area: REPO;
-    background: url();
-}
-
-.ARCHIVE {
-    grid-area: ARCHIVE;
-    background: url();
+@media (max-width: 480px) {
+    .projects-cards-container {
+        grid-template-columns: 1fr;
+    }
 }

@@ -1,46 +1,38 @@
 body {
-  display: grid;
-  grid-gap: 5%;
-  grid-template-areas: 'DUM CON';
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#dummy {
-  display: block;
-  grid-area: DUM;
-  width: 75px;
-}
-
-/*Home means content... do not be confused. I just hate life at this point.*/
-#Home {
-  grid-area: CON;
-  position: absolute;
-  width: calc(100vw - 80px) !important;
-  height: 100%;
-  top: 0;
-  right: 0;
+.content {
+  width: calc(100vw - 75px);
+  margin-left: 75px;
+  min-height: 100vh;
 }
 
 /*NAVBAR*/
 .navbarContainer {
   position: fixed;
   left: 0;
-  height: 100%;
-  background: url(assets/dbrodepattern.png);
+  top: 0;
+  height: 100vh;
+  width: 75px;
+  background: url(../assets/dbrodepattern.png);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 10px 0 10px;
-  box-shadow: 2px 0 15px .000;
-  font-size: 2em;
-  width: 55px;
-  z-index: 10;
+  padding: 0;
+  box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+  z-index: 100;
 }
 
 .navbarContainer a {
   filter: brightness(0.25);
-  text-shadow: 0 0 2.5px .000;
+  text-shadow: 0 0 2.5px;
   transition: all 250ms ease-in-out;
+  text-decoration: none;
 }
 
 .navbarContainer a:hover {
@@ -49,7 +41,7 @@ body {
 }
 
 .active {
-  filter: none;
+  filter: none !important;
 }
 
 .projectsNavButton {
@@ -60,53 +52,18 @@ body {
   font-size: 1.13875rem;
 }
 
-/* @media only screen and (max-width: 600px) {
-  #dummy {
-    display: none;
-  }
-
-  .navbarContainer a {
-    filter: none;
-  }
-
-  .homeWrapper {
-    padding: 5% 2.5% 5% 2.5%;
-  }
-
-  #neonHi {
-    font-size: 20vw;
-  }
-
-  section{
-    width: 100vw;
-    margin: 0 !important;
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 60px;
   }
 
   .navbarContainer {
-    height: 10vh;
+    height: 60px;
     width: 100%;
     bottom: 0;
+    top: auto;
     flex-direction: row;
-    padding: 1% 0 1% 0;
   }
-
-  .navbarContainer a{
-    filter: none;
-    text-shadow: 0 0 20px;
-  }
-} */
-
-.scroll-arrow{
-  position: absolute;
-  left: 45%;
-  font-size: 2.5rem;
-  top: 90vh;
-  font-weight: 900;
-  color: var(--colorSecondary);
-  text-shadow: 0 0 5px var(--colorSecondary);
-  animation: arrowReveal 250ms ease 10s 3 forwards;
-}
-@keyframes arrowReveal {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
