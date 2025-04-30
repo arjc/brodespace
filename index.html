@@ -34,11 +34,10 @@
     <div class="main-wrapper">
         <!-- Navigation -->
         <nav class="navbarContainer">
-            <a href="#Home" class="nav-element" style="animation: glowRev 100ms ease-out 9.1s forwards">💙</a>
-            <a href="#Projects" class="projectsNavButton nav-element">
-                <div>🟪🚍🌍<br />💊🟦🤓<br />🎱🟫❎</div>
-            </a>
-            <a href="#Contact" class="contactNavButton nav-element">🤜🏼🤛🏽</a>
+            <a href="#Home" class="nav-element" data-section="Home">💙</a>
+            <a href="#About" class="nav-element" data-section="About">ℹ️</a>
+            <a href="#Projects" class="nav-element" data-section="Projects">🎮</a>
+            <a href="#Contact" class="nav-element" data-section="Contact">🤜🏼🤛🏽</a>
         </nav>
 
         <!-- Main Content -->
@@ -63,8 +62,10 @@
                         <img src="assets/Brode 1x1.png" alt="brode stripes logo" onclick="snake()" />
                     </div>
                 </div>
+            </section>
 
-                <!-- About Section -->
+            <!-- About Section -->
+            <section id="About" class="about-wrapper hidden">
                 <div class="about-container">
                     <!-- Personal Info -->
                     <div class="about-me hidden">
@@ -88,43 +89,46 @@
 
             <!-- Projects Section -->
             <section class="projects-wrapper hidden" id="Projects">
-                <div class="projects-cards-container">
-                    <a href="projects/video-editing.html" class="VIDEO" title="Check out my video editing projects">
-                        <span class="project-title">VIDEO EDITING</span>
-                        <span class="project-desc">Creative video edits and productions</span>
-                    </a>
-                    <a href="archive/paiza.zip" class="ARCHIVE" title="Access my project archives">
-                        <span class="project-title">ARCHIVE</span>
-                        <span class="project-desc">Collection of past works</span>
-                    </a>
-                    <a href="https://github.com/yourusername" class="REPO" title="Browse my code repositories">
-                        <span class="project-title">REPOSITORIES</span>
-                        <span class="project-desc">Open source contributions</span>
-                    </a>
-                    <a href="projects/calculator.html" class="GAMES" title="Play my game projects">
-                        <span class="project-title">GAME DEV</span>
-                        <span class="project-desc">Interactive games and demos</span>
-                    </a>
-                    <a href="https://youtube.com/@yourusername" class="YOUTUBE" title="Watch my YouTube content">
-                        <span class="project-title">YOUTUBE</span>
-                        <span class="project-desc">Video content and tutorials</span>
-                    </a>
-                    <a href="projects/edits.html" class="EDITS" title="View my digital edits">
-                        <span class="project-title">EDITS</span>
-                        <span class="project-desc">Digital art and designs</span>
-                    </a>
-                    <a href="projects/ai-projects.html" class="AI" title="Explore my AI projects">
-                        <span class="project-title">AI PROJECTS</span>
-                        <span class="project-desc">Machine learning experiments</span>
-                    </a>
-                    <a href="projects/school.html" class="SCHOOL" title="Academic projects">
-                        <span class="project-title">SCHOOL</span>
-                        <span class="project-desc">Academic work and research</span>
-                    </a>
-                    <a href="blog/" class="BLOG" title="Read my blog posts">
-                        <span class="project-title">BLOG</span>
-                        <span class="project-desc">Articles and insights</span>
-                    </a>
+                <!-- Radar Sites Section -->
+                <div class="web-container">
+                    <h2>MY SITES</h2>
+                    <div class="radar">
+                        <div class="radar-screen">
+                            <div class="radar-sweep"></div>
+                            <div class="radar-sites">
+                                <a href="projects/calculator.html" class="project-node" data-name="Alien Base 4 Calculator" style="--x: 50; --y: 30">
+                                    <img src="assets/brogo round 1x1.png" alt="Alien Base 4 Calculator">
+                                </a>
+                                <a href="files.html" class="project-node" data-name="Files by Brode" style="--x: 75; --y: 45">
+                                    <img src="assets/brogofolder.png" alt="Files by Brode">
+                                </a>
+                                <a href="#music" class="project-node" data-name="Music Projects" style="--x: 25; --y: 45">
+                                    <img src="assets/brogo round 1x1.png" alt="Music Projects">
+                                </a>
+                                <a href="#" class="project-node" data-name="Coming Soon" style="--x: 40; --y: 70">
+                                    <img src="assets/brogo round 1x1.png" alt="Coming Soon">
+                                </a>
+                                <a href="#" class="project-node" data-name="Coming Soon" style="--x: 60; --y: 70">
+                                    <img src="assets/brogo round 1x1.png" alt="Coming Soon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Projects (Moved outside web-container for better layout) -->
+                <div class="other-projects">
+                    <!-- Music Section -->
+                    <div class="music-container">
+                        <h2>MY MUSIC</h2>
+                        <p>Coming soon... Working on some sick beats! 🎵</p>
+                    </div>
+
+                    <!-- Edits Section -->
+                    <div class="edits-container">
+                        <h2>MY EDITS</h2>
+                        <p>Digital art and designs coming soon... Stay tuned! 🎨</p>
+                    </div>
                 </div>
             </section>
 
@@ -133,25 +137,37 @@
                 <div class="contact-container">
                     <h2>GET IN TOUCH</h2>
                     <div class="contact-grid">
-                        <a href="https://github.com/yourusername" class="contact-card github">
+                        <a href="https://github.com/arjc" class="contact-card github">
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="mailto:your.email@example.com" class="contact-card email">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" class="contact-card linkedin">
+                        <a href="https://linkedin.com/in/arjunliji" class="contact-card linkedin">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
-                        <a href="https://twitter.com/yourusername" class="contact-card twitter">
+                        <a href="https://twitter.com/brodesxists" class="contact-card twitter">
                             <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
+                            <span>Twitter (LuvTheBird)</span>
+                        </a>
+                        <a href="https://instagram.com/arjun_liji" class="contact-card instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://discord.gg/abxsyewy666y" class="contact-card discord">
+                            <i class="fab fa-discord"></i>
+                            <span>Discord</span>
                         </a>
                     </div>
                 </div>
             </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>&copy; 2025 Brodespace. All rights reserved.</p>
+                    <p>Created with <span class="heart">💙</span> by Arjun Liji</p>
+                </div>
+            </footer>
         </main>
     </div>
 

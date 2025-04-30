@@ -28,35 +28,35 @@ body {
   z-index: 100;
 }
 
-.navbarContainer a {
+.nav-element {
   filter: brightness(0.25);
   text-shadow: 0 0 2.5px;
   transition: all 250ms ease-in-out;
   text-decoration: none;
+  padding: 10px;
+  font-size: 1.5rem;
 }
 
-.navbarContainer a:hover {
+.nav-element:hover,
+.nav-element.active {
   filter: none;
-  text-shadow: 0 0 20px;
-}
-
-.active {
-  filter: none !important;
+  text-shadow: 0 0 20px var(--colorPrimary);
+  transform: scale(1.1);
 }
 
 .projectsNavButton {
-  font-size: 0.75937rem;
+  font-size: clamp(0.6rem, 1.5vw, 0.75937rem);
 }
 
 .contactNavButton {
-  font-size: 1.13875rem;
+  font-size: clamp(0.9rem, 2vw, 1.13875rem);
 }
 
 @media (max-width: 768px) {
   .content {
     width: 100%;
     margin-left: 0;
-    margin-bottom: 60px;
+    padding-bottom: 70px;
   }
 
   .navbarContainer {
@@ -65,5 +65,32 @@ body {
     bottom: 0;
     top: auto;
     flex-direction: row;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+  }
+  
+  .navbarContainer a {
+    padding: 8px;
+  }
+  
+  .projectsNavButton div {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding-bottom: 60px;
+  }
+  
+  .navbarContainer {
+    height: 50px;
+  }
+  
+  .projectsNavButton div {
+    font-size: 0.5rem;
   }
 }
