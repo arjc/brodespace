@@ -29,18 +29,38 @@ body {
 }
 
 .nav-element {
-  filter: brightness(0.25);
-  text-shadow: 0 0 2.5px;
+  text-shadow: 0 0 0.5px #1a1a1a;
   transition: all 250ms ease-in-out;
   text-decoration: none;
   padding: 10px;
   font-size: 1.5rem;
+  color: transparent;
+  animation: sideIconRev 500ms ease 5s ; 
+  animation-name: sideIconRev;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out; 
 }
 
 .nav-element:hover,
 .nav-element.active {
   filter: none;
+  color: var(--colorPrimary);
   text-shadow: 0 0 20px var(--colorPrimary);
+}
+
+@keyframes sideIconRev {
+  0%{
+    color: transparent;
+    text-shadow: 0 0 0.5px #1a1a1a;
+  }
+  50%{
+      color: var(--colorPrimary);
+      text-shadow: 0 0 20px var(--colorPrimary);
+  }
+  100%{
+      color: transparent;
+      text-shadow: 0 0 0.5px #1a1a1a;
+  }
 }
 
 @media (max-width: 768px) {
