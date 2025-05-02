@@ -38,6 +38,13 @@ a {
   color: var(--colorText);
 }
 
+hr {
+  border: none;
+  height: 2px;
+  background: url(assets/dbrodepattern.png) repeat-x;
+  margin: 1rem 0;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -147,7 +154,7 @@ a {
     color: var(--colorSecondary);
     text-shadow: 0 0 5px var(--colorSecondary);
 }
-.smallScreen{
+/* .smallScreen{
   display: none;
   width: 90%;
   transition: 300ms all ease;
@@ -168,7 +175,7 @@ a {
     color: var(--colorPrimary);
     text-shadow: 0 0 5rem var(--colorPrimary);
   }
-}
+} */
 .footer {
     margin-top: 4rem;
     padding: 2rem 1rem;

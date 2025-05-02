@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brode's Music</title>
+    <link rel="stylesheet" href="../styles/global.css">
+    <style>
+        .music-tile {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            padding: 20px;
+            transition: all ease 300ms;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-tile img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .music-tile:hover {
+            transform: translateY(-5px);
+        }
+
+        .song-tile-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .player-container {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .cd-display {
+            width: 150px;  /* Reduced from 200px */
+            height: 150px; /* Reduced from 200px */
+            margin: 0 auto 15px;
+            position: relative;
+            display: none;
+        }
+
+        .cd-display.playing {
+            display: block;
+            animation: spin 10s linear infinite;
+        }
+
+        .cd-display img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .cd-hole {
+            width: 30px;  /* Reduced from 40px */
+            height: 30px; /* Reduced from 40px */
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .track-info {
+            margin-top: 20px;
+        }
+
+        .controls {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .control-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .control-btn:hover {
+            background: #555;
+        }
+
+        .control-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background: #ddd;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #333;
+            border-radius: 5px;
+            transition: width 0.1s linear;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <div class="cd-display">
+            <img id="albumArt" src="" alt="Album Art">
+            <div class="cd-hole"></div>
+        </div>
+        <div class="track-info">
+            <h2 id="nowPlaying">Select a track to play</h2>
+            <div class="controls">
+                <button class="control-btn" id="playPauseBtn" disabled onclick="togglePlayPause()">Play</button>
+                <button class="control-btn" id="stopBtn" disabled onclick="stopTrack()">Stop</button>
+            </div>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <audio id="audioPlayer"></audio>
+        </div>
+    </div>
+
+    <div class="song-tile-container">
+        <div class="music-tile" onclick="play('Xijingping.mp3', '../assets/Red Sun in the Sky CCP music.mp3', 'Xi jing ping remix')" data-color="#ff4444">
+            <img src="../assets/Red Sun in the Sky CCP music.mp3" alt="Xi jing ping remix">
+            <h3>Xi jing ping remix</h3>
+        </div>
+        <div class="music-tile" onclick="play('abyss.mp3', '../assets/dbrodepattern.png', 'Abyssal choir')" data-color="#4466ff">
+            <img src="../assets/dbrodepattern.png" alt="Abyssal choir">
+            <h3>Abyssal choir</h3>
+        </div>
+        <div class="music-tile" onclick="play('synthwave.mp3', '../assets/Brode 1x1.png', 'Neon Dreams')" data-color="#ff44ff">
+            <img src="../assets/Brode 1x1.png" alt="Neon Dreams">
+            <h3>Neon Dreams</h3>
+        </div>
+        <div class="music-tile" onclick="play('ambient.mp3', '../assets/Brogo dotted.png', 'Cosmic Drift')" data-color="#44ffff">
+            <img src="../assets/Brogo dotted.png" alt="Cosmic Drift">
+            <h3>Cosmic Drift</h3>
+        </div>
+        <div class="music-tile" onclick="play('lofi.mp3', '../assets/brogo round 1x1.png', 'Chill Vibes')" data-color="#44ff44">
+            <img src="../assets/brogo round 1x1.png" alt="Chill Vibes">
+            <h3>Chill Vibes</h3>
+        </div>
+    </div>
+    <script>
+        const player = document.getElementById('audioPlayer');
+        const cdDisplay = document.querySelector('.cd-display');
+        const albumArt = document.getElementById('albumArt');
+        const nowPlaying = document.getElementById('nowPlaying');
+        const progress = document.getElementById('progress');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+
+        function togglePlayPause() {
+            if (player.paused) {
+                player.play();
+                cdDisplay.classList.add('playing');
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                player.pause();
+                cdDisplay.classList.remove('playing');
+                playPauseBtn.textContent = 'Play';
+            }
+        }
+
+        function stopTrack() {
+            player.pause();
+            player.currentTime = 0;
+            cdDisplay.classList.remove('playing');
+            playPauseBtn.textContent = 'Play';
+            progress.style.width = '0%';
+        }
+
+        function play(songUrl, albumArtUrl, title) {
+            // Update album art and title
+            albumArt.src = albumArtUrl;
+            nowPlaying.textContent = title;
+            
+            // Enable controls
+            playPauseBtn.disabled = false;
+            stopBtn.disabled = false;
+            
+            // Update audio source and play
+            player.src = songUrl;
+            player.play();
+            
+            // Start CD rotation and update button
+            cdDisplay.classList.add('playing');
+            playPauseBtn.textContent = 'Pause';
+            cdDisplay.style.display = 'block';
+            
+            // Update progress bar
+            player.addEventListener('timeupdate', () => {
+                const percent = (player.currentTime / player.duration) * 100;
+                progress.style.width = percent + '%';
+            });
+            
+            // Reset when song ends
+            player.addEventListener('ended', () => {
+                cdDisplay.classList.remove('playing');
+                progress.style.width = '0%';
+                playPauseBtn.textContent = 'Play';
+            });
+        }
+
+        // Allow seeking
+        document.getElementById('progressBar').addEventListener('click', (e) => {
+            const progressBar = e.currentTarget;
+            const clickPosition = e.offsetX / progressBar.offsetWidth;
+            player.currentTime = clickPosition * player.duration;
+        });
+
+        // Add glow effect on hover
+        document.querySelectorAll('.music-tile').forEach(tile => {
+            tile.addEventListener('mouseenter', () => {
+                const color = tile.getAttribute('data-color');
+                tile.style.boxShadow = `0 0 20px ${color}`;
+                tile.style.background = `${color}22`; // Add slight background tint
+            });
+
+            tile.addEventListener('mouseleave', () => {
+                tile.style.boxShadow = 'none';
+                tile.style.background = 'transparent';
+            });
+        });
+    </script>
+</body>
+</html>

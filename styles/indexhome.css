@@ -92,6 +92,8 @@
     flex-direction: column;
     text-align: center;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
   }
 
   #interactiveBrogo {
@@ -100,6 +102,16 @@
 
   #neonHiContainer {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #neonHi, #neonBrodeRap {
+    width: 100%;
+    text-align: center;
   }
 }
 

@@ -4,6 +4,11 @@ const contactNavButton = document.querySelector("#contactNavButton");
 
 const hiddenElements = document.querySelectorAll(".hidden");
 
+//SHITCODE
+function randomInt(l, u) {
+    return Math.floor(Math.random() * (u - l + 1)) + l;
+}
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     console.log(entry);
@@ -19,8 +24,8 @@ const observer = new IntersectionObserver((entries) => {
 
 hiddenElements.forEach((el) => observer.observe(el));
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('.nav-element');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-element');
 
 window.onscroll = () => {
     let current = '';
@@ -41,33 +46,24 @@ window.onscroll = () => {
     });
 };
 
-//setTimeouts are used here for permanent styles
+//Brogo  light up
 setTimeout(() => {
   document.querySelector("#interactiveBrogo img").style.filter = "none";
   document.querySelector("#interactiveBrogo img").style.boxShadow = "0 0 30px var(--colorSecondary)";
 }, 4000);
 
-function snake() {
-  const logo = document.querySelector("#interactiveBrogo img");
-  logo.style.transform = "rotate(360deg)";
-  logo.style.transition = "transform 1s ease";
-  setTimeout(() => {
-    logo.style.transform = "rotate(0deg)";
-  }, 1000);
-}
-
-// Function to update project node positions randomly
+//jump around in radar
 function updateProjectNodePositions() {
     const projectNodes = document.querySelectorAll('.project-node');
     projectNodes.forEach(node => {
         const updatePosition = () => {
-            const x = Math.floor(Math.random() * 80) + 10; // Keep within 10-90% range
+            const x = Math.floor(Math.random() * 80) + 10; //10-90% range
             const y = Math.floor(Math.random() * 80) + 10;
             node.style.setProperty('--x', x);
             node.style.setProperty('--y', y);
         };
         
-        // Update position every 10 seconds
+        //TODO: make sure that it syncs with dissapear. I dont want to make another function for it since I dont know how to do so
         setInterval(updatePosition, 10000);
     });
 }
@@ -76,10 +72,8 @@ function initializeRadar() {
     const radar = document.querySelector('.radar-screen');
     if (!radar) return;
     
-    // Initial setup of project nodes
     const projectNodes = document.querySelectorAll('.project-node');
     projectNodes.forEach(node => {
-        // Set initial random positions
         const x = Math.floor(Math.random() * 80) + 10;
         const y = Math.floor(Math.random() * 80) + 10;
         node.style.setProperty('--x', x);
@@ -87,43 +81,31 @@ function initializeRadar() {
     });
 }
 
-// DAW Music Editor Logic
+//===DAWWG===
 const dawProjects = [
     {
         name: "Red Sun in the Sky",
         link: "assets/Red Sun in the Sky CCP music.mp3",
         color: "#ff4d4d",
-        colorLight: "#ff6666"
+        colorLight: "#ff6666",
+        icon: "fas fa-music"
     },
     {
         name: "Alien Base 4 Calculator OST",
         link: "projects/calculator.html",
         color: "#00e6e6",
-        colorLight: "#33ffff"
+        colorLight: "#33ffff",
+        icon: "fas fa-music"
     },
     {
         name: "Files by Brode Theme",
         link: "files.html",
         color: "#ffd700",
-        colorLight: "#ffed4a"
+        colorLight: "#ffed4a",
+        icon: "fab fa-twitter"
     },
-    {
-        name: "Brode's Beat 1",
-        link: "#",
-        color: "#8e44ad",
-        colorLight: "#a55bbf"
-    },
-    {
-        name: "Brode's Beat 2",
-        link: "#",
-        color: "#27ae60",
-        colorLight: "#2ecc71"
-    }
-];
 
-function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+];
 
 function renderDAWTracks() {
     const dawTracks = document.getElementById('dawTracks');
@@ -142,10 +124,10 @@ function renderDAWTracks() {
         track.setAttribute('tabindex', 0);
         track.innerHTML = `
             <span class="daw-track-label">${proj.name}</span>
-            <i class="fas fa-music" style="color: rgba(255,255,255,0.9); font-size: 1.5em;"></i>
+            <i class="${proj.icon}" style="color: rgba(255,255,255,0.9); font-size: 1.5em;"></i>
         `;
-        
-        // Enhanced hover and click effects
+
+        // CHATGPT's code
         track.addEventListener('mouseenter', () => {
             track.classList.add('active');
             const playhead = document.getElementById('dawPlayhead');
@@ -168,6 +150,7 @@ function renderDAWTracks() {
 }
 
 function dawPlayheadFollow() {
+    //DAW PLAY HEAD THE FOOLOW WITH ME NIGGESH
     const dawEditor = document.getElementById('dawEditor');
     const playhead = document.getElementById('dawPlayhead');
     if (!dawEditor || !playhead) return;
@@ -180,13 +163,21 @@ function dawPlayheadFollow() {
         playhead.style.opacity = '1';
     });
     
-    dawEditor.addEventListener('mouseleave', () => {
-        playhead.style.left = '-10px';
-        playhead.style.opacity = '0.8';
-    });
+    // dawEditor.addEventListener('mouseleave', () => {
+    //     playhead.style.left = '-10px';
+    //     playhead.style.opacity = '0.8';
+    // });
 }
+//=======================
 
-// Initialize radar and project nodes when page loads
+const yey = document.querySelector("#yay")
+
+setInterval(() => {
+    yey.textContent = "\\(@O@)/"
+    setTimeout(() => yey.textContent = "_(@o@)_", 500)
+}, 1000);
+
+//INIT... NO JS BEYOND THIS POINT =============================================================================
 window.addEventListener('load', () => {
     initializeRadar();
     updateProjectNodePositions();
