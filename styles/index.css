@@ -41,15 +41,6 @@ body {
 .nav-element.active {
   filter: none;
   text-shadow: 0 0 20px var(--colorPrimary);
-  transform: scale(1.1);
-}
-
-.projectsNavButton {
-  font-size: clamp(0.6rem, 1.5vw, 0.75937rem);
-}
-
-.contactNavButton {
-  font-size: clamp(0.9rem, 2vw, 1.13875rem);
 }
 
 @media (max-width: 768px) {

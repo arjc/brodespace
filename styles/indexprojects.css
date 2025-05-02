@@ -19,6 +19,9 @@
     align-items: center;
     padding: 0;
     box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 2% 0;
 }
 
 .web-container h2 {
@@ -27,17 +30,21 @@
 }
 
 .radar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 4rem);
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .radar-screen {
+    
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 500px;
+    height: 500px;
     background: radial-gradient(circle at center, 
         rgba(0, 128, 255, 0.1) 0%, 
         rgba(0, 128, 255, 0.05) 50%, 
@@ -53,11 +60,11 @@
 
 .radar-sweep {
     position: absolute;
-    width: 50%;
+    width: 50vw;
     height: 2px;
     background: linear-gradient(90deg, 
-        rgba(0, 128, 255, 0.8), 
-        rgba(0, 128, 255, 0.4), 
+        rgba(0, 128, 255, 0.419), 
+        rgba(0, 128, 255, 0.341), 
         transparent
     );
     top: 50%;
@@ -87,8 +94,8 @@
     top: calc(var(--y) * 1%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
-    animation: nodeAppear 0.5s forwards;
-    animation-delay: calc(var(--x) * 10ms);
+    animation: nodeAppear 0.5s forwards, radarScan 10s infinite;
+    animation-delay: calc(var(--x) * 10ms), calc(var(--x) * 500ms);
 }
 
 .project-node::before {
@@ -106,6 +113,7 @@
     transition: opacity 0.3s;
     pointer-events: none;
     white-space: nowrap;
+    z-index: 3;
 }
 
 .project-node:hover::before {
@@ -124,6 +132,7 @@
 .project-node:hover {
     transform: translate(-50%, -50%) scale(1.15);
     z-index: 10;
+    animation-play-state: paused;
 }
 
 .project-node:hover img {
@@ -141,12 +150,39 @@
     }
 }
 
-/* Grid lines for radar */
+@keyframes radarScan {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    45% {
+        transform: translate(-50%, -50%) scale(0.6) translate(calc((50 - var(--x)) * 1%), calc((50 - var(--y)) * 1%));
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(0) translate(calc((50 - var(--x)) * 2%), calc((50 - var(--y)) * 2%));
+        opacity: 0;
+    }
+    51% {
+        transform: translate(-50%, -50%) scale(0) translate(calc(random() * 100%), calc(random() * 100%));
+    }
+    55% {
+        transform: translate(-50%, -50%) scale(1) translate(calc(random() * 100% - 50%), calc(random() * 100% - 50%));
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Grid lines*/
 .radar-screen::before {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
+    transform: translateX(-50%);
     background: 
         repeating-radial-gradient(
             circle at center,
@@ -157,6 +193,7 @@
         ),
         linear-gradient(0deg, transparent 49.5%, rgba(0, 128, 255, 0.1) 50%, transparent 50.5%),
         linear-gradient(90deg, transparent 49.5%, rgba(0, 128, 255, 0.1) 50%, transparent 50.5%);
+    
 }
 
 /* Other Projects Section */
@@ -259,6 +296,131 @@
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     text-align: center;
+}
+
+/* DAW Editor Styles */
+.daw-editor {
+    position: relative;
+    width: 100%;
+    max-width: 2000px;
+    height: 500px;
+    margin: 2rem auto 0 auto;
+    background: linear-gradient(to bottom,
+        #181c24,
+        #1a202c
+    );
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 30px #0080ff33;
+    border: 2px solid var(--colorPrimary);
+}
+.daw-timeline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2000px;
+    height: 40px;
+    background: 
+        repeating-linear-gradient(90deg, 
+            rgba(0, 128, 255, 0.1) 0 1px,
+            transparent 1px 50px
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0, 128, 255, 0.05) 0%,
+            rgba(0, 128, 255, 0.02) 100%
+        );
+    z-index: 1;
+    animation: daw-scroll 30s linear infinite;
+}
+@keyframes daw-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1000px); }
+}
+.daw-playhead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--colorPrimary) 0%,
+        var(--colorSecondary) 100%
+    );
+    box-shadow: 
+        0 0 10px var(--colorPrimary),
+        0 0 20px var(--colorSecondary);
+    z-index: 10;
+    pointer-events: none;
+    transition: left 0.1s;
+    opacity: 0.8;
+}
+.daw-tracks {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 2000px;
+    height: 260px;
+    z-index: 2;
+    animation: daw-scroll 30s linear infinite;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 128, 255, 0.02) 0,
+        rgba(0, 128, 255, 0.02) 39px,
+        rgba(0, 128, 255, 0.04) 40px
+    );
+}
+.daw-track {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(
+        135deg,
+        var(--track-color) 0%,
+        var(--track-color-light) 100%
+    );
+    border: 2px solid var(--track-color-light);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--colorPrimary);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+.daw-track:hover, .daw-track.active {
+    background: var(--colorPrimary);
+    box-shadow: 0 0 30px var(--colorPrimary);
+    z-index: 20;
+    transform: scale(1.15);
+    filter: brightness(1.3);
+    box-shadow: 
+        0 0 20px var(--track-color),
+        0 0 40px var(--track-color-light);
+}
+.daw-track .daw-track-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222b;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+.daw-track:hover .daw-track-label, .daw-track.active .daw-track-label {
+    opacity: 1;
+}
+@media (max-width: 900px) {
+    .daw-editor { max-width: 100vw; }
+    .daw-timeline, .daw-tracks { width: 1200px; }
 }
 
 /* Responsive Styles */
